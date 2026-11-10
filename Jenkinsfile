@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKERHUB_REPO = 'instantpranchi/jenkins-dockerhub-pipeline'
+        DOCKERHUB_REPO = 'aswinkm06/jenkins-dockerhub-pipeline'
     }
 
     stages {
