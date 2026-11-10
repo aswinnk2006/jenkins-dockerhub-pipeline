@@ -1,44 +1,50 @@
-# Jenkins Docker Hub Pipeline
+# Jenkins Docker Hub CI/CD Pipeline
 
-A minimal Flask application packaged with Docker and built and pushed to Docker Hub by Jenkins.
+## Project Description
+This project demonstrates an automated CI/CD pipeline using Jenkins, Docker, GitHub, and Docker Hub.
 
-## Project structure
+Jenkins fetches source code from GitHub, builds a Docker image, and pushes it to Docker Hub.
 
-```text
-jenkins-dockerhub-pipeline/
-├── app/
-│   ├── __init__.py
-│   └── app.py
-├── tests/
-│   └── test_app.py
-├── Dockerfile
-├── requirements.txt
-├── Jenkinsfile
-└── README.md
+## Technologies Used
+- Jenkins
+- Docker
+- Docker Hub
+- Git & GitHub
+- Python Flask
+- AWS EC2
+- Ubuntu Linux
+
+## CI/CD Workflow
+1. Source code is stored in GitHub.
+2. Jenkins fetches the source code.
+3. Jenkins builds a Docker image.
+4. Jenkins logs in to Docker Hub using stored credentials.
+5. Jenkins pushes the image to Docker Hub.
+
+## Docker Hub Repository
+
+[View Docker Hub Repository](https://hub.docker.com/repository/docker/aswinkm06/jenkins-dockerhub-pipeline)
+
+### Available Tags
+- latest
+- 2
+
+### Pull Docker Image
+
+```bash
+docker pull aswinkm06/jenkins-dockerhub-pipeline:latest
 ```
 
-## Run locally
+## Screenshots
 
-Install the requirements and start the application:
+### Jenkins Build Success
+![Jenkins Success](screenshots/01-jenkins-success.png)
 
-```sh
-python -m pip install -r requirements.txt
-python -m app.app
-```
+### Jenkins Console Output
+![Jenkins Console](screenshots/02-jenkins-console.png)
 
-Open <http://localhost:5000>.
+### Docker Hub Tags
+![Docker Hub](screenshots/03-dockerhub-tags.png)
 
-## Run tests
-
-```sh
-python -m unittest discover -s tests
-```
-
-## Configure Jenkins
-
-1. Make sure the Jenkins agent has Python and Docker installed and can access the Docker daemon.
-2. Add a Jenkins **Username with password** credential for Docker Hub with the ID `dockerhub-credentials`.
-3. In `Jenkinsfile`, replace `your-dockerhub-username` in `DOCKERHUB_REPO` with your Docker Hub username.
-4. Create a Jenkins Pipeline job that uses this repository's `Jenkinsfile`, then run the job.
-
-The pipeline runs the tests, builds versioned and `latest` image tags, then pushes both to Docker Hub.
+## Project Outcome
+Successfully implemented a Jenkins CI/CD pipeline to build Docker images and automatically push them to Docker Hub.
